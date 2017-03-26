@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Context path="/tzuchi-addressbook" docBase="tzuchi-addressbook" debug="0" reloadable="true"> 
+  <Realm className="org.apache.catalina.realm.JDBCRealm" debug="0" 
+    driverName="com.mysql.jdbc.Driver" 
+    connectionURL="jdbc:mysql://localhost/tzuchi_addressbook" userTable="user_account"
+    userNameCol="user_name" userCredCol="password" userRoleTable="user_account" 
+    roleNameCol="role" digest="MD5"/>
+  <Logger className="org.apache.catalina.logger.FileLogger"
+    prefix="tzuchi_address_log." suffix=".txt" timestamp="true"/>
+
+  <!-- mail connection -->
+  <Resource name="mail/tzuchi" auth="Container" type="javax.mail.Session"/>
+  <ResourceParams name="mail/tzuchi">
+    <parameter>
+      <name>mail.smtp.host</name>
+      <value>outgoing.verizon.net</value>
+    </parameter>
+    <parameter>
+     <name>mail.smtp.auth</name>
+     <value>true</value>
+    </parameter>
+  </ResourceParams>
+</Context>
