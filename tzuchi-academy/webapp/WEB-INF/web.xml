@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+   <display-name>Tzu-Chi School Registration</display-name>
+   <description>
+      Tzu-Chi School Registration web application.
+   </description>
+
+   <!-- servelt -->
+   <servlet>
+      <servlet-name>LoginServlet</servlet-name>
+      <servlet-class>servlet.LoginServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>NewAccountServlet</servlet-name>
+      <servlet-class>servlet.NewAccountServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>UpdateAccountServlet</servlet-name>
+      <servlet-class>servlet.UpdateAccountServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminFamilyManagementServlet</servlet-name>
+      <servlet-class>servlet.FamilyManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminFacultyManagementServlet</servlet-name>
+      <servlet-class>servlet.FacultyManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminStudentManagementServlet</servlet-name>
+      <servlet-class>servlet.StudentManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminRegistrationManagementServlet</servlet-name>
+      <servlet-class>
+         servlet.RegistrationManagementServlet
+      </servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminClassManagementServlet</servlet-name>
+      <servlet-class>servlet.ClassManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminCourseManagementServlet</servlet-name>
+      <servlet-class>servlet.CourseManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminSchoolInfoManagementServlet</servlet-name>
+      <servlet-class>servlet.SchoolInfoManagementServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>AdminPdfReportsServlet</servlet-name>
+      <servlet-class>servlet.PdfReportsServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>
+
+   <servlet>
+      <servlet-name>CSVReportServlet</servlet-name>
+      <servlet-class>servlet.CSVReportServlet</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>LoginServlet</servlet-name>
+      <url-pattern>/LoginServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>NewAccountServlet</servlet-name>
+      <url-pattern>/NewAccountServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>UpdateAccountServlet</servlet-name>
+      <url-pattern>/UpdateAccountServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminFamilyManagementServlet</servlet-name>
+      <url-pattern>/AdminFamilyManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminFacultyManagementServlet</servlet-name>
+      <url-pattern>/AdminFacultyManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminStudentManagementServlet</servlet-name>
+      <url-pattern>/AdminStudentManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminRegistrationManagementServlet</servlet-name>
+      <url-pattern>/AdminRegistrationManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminClassManagementServlet</servlet-name>
+      <url-pattern>/AdminClassManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminCourseManagementServlet</servlet-name>
+      <url-pattern>/AdminCourseManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminSchoolInfoManagementServlet</servlet-name>
+      <url-pattern>/AdminSchoolInfoManagementServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>AdminPdfReportsServlet</servlet-name>
+      <url-pattern>/AdminPdfReportsServlet</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>CSVReportServlet</servlet-name>
+      <url-pattern>/CSVReportServlet</url-pattern>
+   </servlet-mapping>
+
+   <!-- resource reference -->
+   <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/tcads</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+   </resource-ref>
+
+   <security-constraint>
+      <web-resource-collection>
+         <web-resource-name>Protected Area</web-resource-name>
+         <url-pattern>/webpages/admin/*</url-pattern>
+         <url-pattern>/Admin*</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <role-name>schooladmin</role-name>
+      </auth-constraint>
+   </security-constraint>
+
+   <security-constraint>
+      <web-resource-collection>
+         <web-resource-name>Protected Area</web-resource-name>
+         <url-pattern>/webpages/secure/*</url-pattern>
+         <url-pattern>/LoginServlet</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+         <role-name>student</role-name>
+         <role-name>teacher</role-name>
+         <role-name>schooladmin</role-name>
+      </auth-constraint>
+   </security-constraint>
+
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/webpages/login.html</form-login-page>
+         <form-error-page>/webpages/error.jsp</form-error-page>
+      </form-login-config>
+   </login-config>
+
+   <!-- Security roles referenced by this web application -->
+   <security-role>
+      <role-name>student</role-name>
+   </security-role>
+   <security-role>
+      <role-name>teacher</role-name>
+   </security-role>
+   <security-role>
+      <role-name>schooladmin</role-name>
+   </security-role>
+</web-app>

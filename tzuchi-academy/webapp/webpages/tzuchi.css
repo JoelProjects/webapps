@@ -1,0 +1,67 @@
+img {border:0}
+html {background-color:#EEF0F2;}
+body {
+  background-color: #ffffff;
+  font-family: Verdana, Tahoma, Helvetica, sans-serif; 
+  color: #000000;
+  font-size: x-small;
+  scrollbar-face-color: #DEE3E7; scrollbar-highlight-color: #FFFFFF;
+  scrollbar-shadow-color: #DEE3E7; scrollbar-3dlight-color: #D1D7DC;
+  scrollbar-arrow-color: #905000; scrollbar-track-color: #EFEFEF;
+  scrollbar-darkshadow-color: #98AAB1;
+}
+a { 
+  font-size: x-small;
+  text-decoration: none;
+  color: #005E8A;
+  font-style: normal;
+  font-weight: bold;
+}
+input { 
+  background-color: transparent;
+  color: #000000;
+  font-size: x-small;
+  font-weight: normal;
+  border-width: 2px;
+  text-indent: 2px;
+}
+select {
+  background-color: #EEF0F2;
+  font-size: x-small;
+  font-weight: bold;
+} 
+th {
+  color: #ffffff; font-size: 12px; font-weight: bold;
+  background-color: #006699; height: 25px;
+  background-image: url(./silver.gif);
+}
+td {  
+  color: #000000;
+  font-size: x-small;
+  border-width: 1px;
+}
+textarea {
+  font-size: x-small;
+  background-color: transparent;
+  font-weight: bold;
+  border-color: #000000;
+  border-width: 1px;
+  text-indent: 2px;
+}
+.asterisk {
+  color: red;
+}
+.subTitle {
+  font-weight: bold;
+  color: #0A01AD;
+  font-size: 16px
+}
+.bg1{background-color:#E8EDF0;}
+.bg2{background-color:#CFDAE1;}
+.bg3{background-color:#D8DFE4;}
+.bg4{background-color:#E8ECF0;}
+.bg5{background-color:#EEF0F2;}
+.bg6{background-color:#056B9E;}
+.fg1{color:#00639C}
+.fg2{color:#00639C}
+.fg3{color:#ffffff}

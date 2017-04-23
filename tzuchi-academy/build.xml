@@ -1,0 +1,35 @@
+<project name="Tzuchi Academy" default="compile" basedir=".">
+	<description>This is a buildfile for the project</description>
+	<property environment="env" />
+	<property name="main.lib.path" value="../../lib" />
+	<property name="classes.path" value="${basedir}/webapp/WEB-INF/classes" />
+	<property name="source.path" value="src" />
+	<property name="webapp.name" value="tzuchi-academy" />
+	<target name="build-dir">
+		<mkdir dir="${classes.path}" />
+	</target>
+	<path id="classpath">
+      <pathelement location="${main.lib.path}/servlet-api.jar" />
+		<fileset dir="${basedir}/webapp/WEB-INF/lib" />
+	</path>
+	<!-- compile into server directory -->
+	<target name="compile" depends="build-dir" description="compile codes">
+		<javac classpathref="classpath" destdir="${classes.path}" srcdir="${source.path}" 
+			includes="**/*.java" debug="on" />
+	</target>
+	<target name="dist" depends="clean,compile" description="generate WAR file">
+		<delete file="${webapp.name}.war" quiet="true" />
+		<war destfile="${webapp.name}.war" webxml="webapp/WEB-INF/web.xml">
+			<fileset dir="webapp">
+				<exclude name="**/CVS" />
+				<exclude name="WEB-INF/web.xml" />
+			</fileset>
+		</war>
+	</target>
+	<!-- remove all generated files -->
+	<target name="clean" description="remove all build generated files">
+		<delete includeEmptyDirs="true" >
+			<fileset dir="${classes.path}" includes="**/*" />
+		</delete>
+	</target>
+</project>

@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<TITLE>Tzu-Chi Academy</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=big5">
+<LINK rel="stylesheet" href="tzuchi.css" type="text/css">
+</HEAD>
+<SCRIPT LANGUAGE="javascript" SRC="newAccount.js">
+</SCRIPT>
+<BODY>
+<FORM NAME=myForm ACTION="../NewAccountServlet" METHOD=post onSubmit="return validateInput()">
+<SCRIPT LANGUAGE="javascript">
+displayInfo();
+</SCRIPT>
+<HR>
+<h3>Register a New Account</h3>
+<TABLE>
+<TR><TD>Username</TD><TD><INPUT TYPE=text SIZE=35 NAME=username></TD></TR>
+<TR><TD>Password</TD><TD><INPUT TYPE=password SIZE=35 NAME=passwd></TD></TR>
+<TR><TD>Confirm Password</TD><TD><INPUT TYPE=password SIZE=35 NAME=repasswd></TD></TR>
+<TR><TD></TD><TD><INPUT TYPE=submit VALUE=" Register ">
+  <INPUT TYPE=reset VALUE=" Cancel "></TD></TR>
+</TABLE>
+<HR>
+</FORM>
+</BODY>
+</HTML>

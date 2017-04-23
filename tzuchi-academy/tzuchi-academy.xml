@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Context path="/tzuchi-academy" docBase="tzuchi-academy" debug="0"
+   reloadable="true">
+   <Realm className="org.apache.catalina.realm.JDBCRealm" debug="0"
+      driverName="com.mysql.jdbc.Driver"
+      connectionURL="jdbc:mysql://localhost/tzuchi_academy"
+      userTable="user_account" connectionName="tzuchi"
+      connectionPassword="" userNameCol="username"
+      userCredCol="password" userRoleTable="user_account"
+      roleNameCol="role" digest="MD5" />
+   <Logger className="org.apache.catalina.logger.FileLogger"
+      prefix="tzuchi-academy_log." suffix=".txt" timestamp="true" />
+   <!-- data source for connection pool -->
+   <Resource name="jdbc/phtsports" auth="Container"
+      type="javax.sql.DataSource" />
+   <ResourceParams name="jdbc/tcads">
+      <parameter>
+         <name>factory</name>
+         <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+      </parameter>
+      <parameter>
+         <name>maxActive</name>
+         <value>30</value>
+      </parameter>
+      <parameter>
+         <name>maxIdle</name>
+         <value>5</value>
+      </parameter>
+      <parameter>
+         <name>maxWait</name>
+         <value>15000</value><!-- milliseconds -->
+      </parameter>
+      <parameter>
+         <name>removeAbandoned</name>
+         <value>true</value>
+      </parameter>
+      <parameter>
+         <name>removeAbandonedTimeout</name>
+         <value>60</value><!-- seconds -->
+      </parameter>
+      <parameter>
+         <name>username</name>
+         <value>tzuchi</value>
+      </parameter>
+      <parameter>
+         <name>password</name>
+         <value></value>
+      </parameter>
+      <parameter>
+         <name>driverClassName</name>
+         <value>com.mysql.jdbc.Driver</value>
+      </parameter>
+      <parameter>
+         <name>url</name>
+         <value>jdbc:mysql://localhost/tzuchi_academy</value>
+      </parameter>
+   </ResourceParams>
+</Context>
